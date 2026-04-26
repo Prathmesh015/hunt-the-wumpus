@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Hunt the Wumpus - A classic cave exploration game with a modern web twist.">
+    <title>Hunt the Wumpus</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1 id="page-title">HUNT THE WUMPUS</h1>
+            <p>Navigate the dark caves. Beware what lurks in the shadows.</p>
+        </header>
+
+        <main class="game-area">
+            <div id="grid" class="grid" aria-label="Game Grid"></div>
+            
+            <aside class="panel">
+                <div class="status-box">
+                    <h2>Sensory Log</h2>
+                    <ul id="log" aria-live="polite">
+                        <li>You enter the cave system...</li>
+                    </ul>
+                </div>
+
+                <div class="controls">
+                    <div class="action-toggle">
+                        <input type="radio" id="mode-move" name="action" value="move" checked>
+                        <label for="mode-move">🏃 Move</label>
+                        
+                        <input type="radio" id="mode-shoot" name="action" value="shoot">
+                        <label for="mode-shoot">🏹 Shoot</label>
+                    </div>
+
+                    <div class="dpad">
+                        <button class="dpad-btn up" id="btn-up" aria-label="Up">▲</button>
+                        <button class="dpad-btn left" id="btn-left" aria-label="Left">◀</button>
+                        <button class="dpad-btn right" id="btn-right" aria-label="Right">▶</button>
+                        <button class="dpad-btn down" id="btn-down" aria-label="Down">▼</button>
+                    </div>
+
+                    <div class="inventory">
+                        Arrows Remaining: <span id="arrow-count">5</span>
+                    </div>
+
+                    <button id="restart-btn" class="btn btn-primary">Restart Exploration</button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Modals for Game Over / Win -->
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <h2 id="modal-title">Game Over</h2>
+            <p id="modal-message">You were eaten by the Wumpus.</p>
+            <button id="modal-btn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
